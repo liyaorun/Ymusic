@@ -1,15 +1,14 @@
 # music
 
-音乐播放前端
+基于网易云api音乐播放前端
+
+运行前安装api和后端
+
+[liyaorun/YmusicServer](https://github.com/liyaorun/YmusicServer)
 
 
 
 #### 安装
-安装api和后端
-
-www.baidu.com
-
-在本项目
 
 ```
 npm install
@@ -30,7 +29,7 @@ npm run dev
 - [x] 进度条优化
 - [x] 搜索页面
 - [x] 播放页面
-- [ ] 留言板
-- [ ] 移动端适配
+- [x] 留言板
+- [x] 移动端适配
 - [ ] 收藏夹
 - [ ] 一起听歌房间

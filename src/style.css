@@ -5,14 +5,14 @@
 }
 
 @font-face {
-  font-family: 'almm';
-  src: url('@/assets/fonts/alimamafangyuanti.ttf');
+  font-family: 'Resource';
+  src: url('@/assets/fonts/ResourceHanRoundedCN-Bold.ttf');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Resource';
-  src: url('@/assets/fonts/ResourceHanRoundedCN-Bold.ttf');
+  font-family: 'almm';
+  src: url('../src/assets/fonts/AlimamaFangYuanTi.woff2') format('woff2');
   font-display: swap;
 }
 

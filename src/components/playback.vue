@@ -115,6 +115,7 @@ const playPause = () => {
 
 // 初始化防抖后的播放音乐函数
 const playBackMusicDebounced = debounce(async (id) => {
+    console.log(musicList.playBackmusic)
     const musicData = await giveMusicUrl(id, musicList.playBackmusic.source);
 
     if (musicData) {
@@ -143,6 +144,7 @@ const NewPlay = (offset) => {
 
     // 更新播放数据
     musicList.playBackmusic = musicList.playList[newIndex];
+    console.log(musicList.playBackmusic)
 };
 
 // 更新播放进度

@@ -23,6 +23,7 @@ import { defineProps } from 'vue';
 import { useMusicList } from '@/stores/musicList';
 import useContextMenu from '@/assets/js/rightMenu';
 import { IconPlayArrowFill, IconSkipNextFill } from '@arco-design/web-vue/es/icon';
+import { ElMessage } from 'element-plus'
 
 
 const props = defineProps({
@@ -41,6 +42,7 @@ const updateSong = (value) => {
     musicList.playList = musicList.playList.filter(song => song.id !== value.id);
     // 添加到新的位置
     musicList.playList.splice(musicList.playList.findIndex(song => song.id === musicList.playBackmusic.id) + 1, 0, { ...value });
+    ElMessage('已添加到下一首播放')
 };
 
 // 立刻播放

@@ -11,12 +11,14 @@
         <div class="body">
             <div class="context">
                 <div class="intro">
-                    <div class="img">
+                    <div class="intro-box">
                         <img :src="musicList.playBackmusic.albumimg || 'src/assets/img/jige.png'" alt="">
+                        <div class="text-box">
+                            <div class="name">{{ musicList.playBackmusic.name }}</div>
+                            <div class="singer text">{{ musicList.playBackmusic.singer + '-' +
+                                musicList.playBackmusic.albumName }}</div>
+                        </div>
                     </div>
-                    <div class="name">{{ musicList.playBackmusic.name }}</div>
-                    <div class="singer text">{{ musicList.playBackmusic.singer + '-' +
-                        musicList.playBackmusic.albumName }}</div>
                 </div>
                 <div class="lyric" ref="lyricBox" @mouseenter="toggleScroll(false)" @mouseleave="toggleScroll(true)">
                     <el-scrollbar height="100%" ref="scrollbarRef">
@@ -179,21 +181,23 @@ onUnmounted(() => {
 
         .context {
             display: flex;
-            justify-content: space-between;
-            width: 65%;
+            justify-content: center;
+            width: 95%;
 
             .intro {
-                width: 45%;
+                width: 50%;
                 display: flex;
                 flex-direction: column;
+                justify-content: center;
+                align-items: end;
 
-                .img {
-                    width: 75%;
+                .intro-box {
+                    width: 70%;
+                }
 
-                    img {
-                        width: 100%;
-                        aspect-ratio: 1 / 1;
-                    }
+                img {
+                    width: 60%;
+                    aspect-ratio: 1 / 1;
                 }
 
                 .name {
@@ -210,7 +214,7 @@ onUnmounted(() => {
             }
 
             .lyric {
-                width: 50%;
+                width: 45%;
                 max-height: calc(100dvh - 300px);
                 overflow: hidden;
 

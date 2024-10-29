@@ -69,7 +69,10 @@ const addItem = () => {
 const addMessageFun = () => {
     let name = SongSheet.wyy.name || '未知'
     let text = MessageValue.value
-    if (!MessageValue.value) return ElMessage.error('留言内容为空');
+    if (!MessageValue.value) return ElMessage.error({
+      message: '留言内容为空',
+      grouping: true,
+    });
 
     axios.post(`sql/sql/addcontext?user=${name}&context=${text}`)
         .then(response => {

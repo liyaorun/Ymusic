@@ -39,7 +39,10 @@ const SongSheet = wyySongSheet()
 SongSheet.musicLoadding = false;
 
 const playSearch = async () => {
-    if (!searchValue.value) return ElMessage.error('搜索为空');
+    if (!searchValue.value) return ElMessage.error({
+      message: '留言内容为空',
+      grouping: true,
+    });
 
     SongSheet.musicLoadding = true;
 

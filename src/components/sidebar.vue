@@ -1,7 +1,7 @@
 <template>
     <div id="sidevar">
         <div class="user">
-            <div class="img"><img :src="SongSheet.wyy.avatar || './public/img/jige.png'" alt=""></div>
+            <div class="img"><img :src="SongSheet.wyy.avatar || './img/jige.png'" alt=""></div>
             <div class="name">{{ SongSheet.wyy.name || '未登录' }}</div>
         </div>
         <el-menu :default-active="SongSheet.menu" :collapse="isCollapse" class="el-menu-vertical-demo"

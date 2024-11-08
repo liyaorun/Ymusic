@@ -1,6 +1,6 @@
 <template>
     <div id="musicPlayShow"
-        :style="{ backgroundImage: 'url(' + musicList.playBackmusic.albumimg || './public/img/jige.png' + ')' }">
+        :style="{ backgroundImage: 'url(' + musicList.playBackmusic.albumimg || './img/jige.png' + ')' }">
         <div class="head">
             <div class="button">
                 <div class="icon" @click="hideMusicPlay">
@@ -12,7 +12,7 @@
             <div class="context">
                 <div class="intro">
                     <div class="intro-box">
-                        <img :src="musicList.playBackmusic.albumimg || './public/img/jige.png'" alt="">
+                        <img :src="musicList.playBackmusic.albumimg || './img/jige.png'" alt="">
                         <div class="text-box">
                             <div class="name">{{ musicList.playBackmusic.name }}</div>
                             <div class="singer text">{{ musicList.playBackmusic.singer + '-' +

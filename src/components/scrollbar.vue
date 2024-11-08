@@ -1,6 +1,6 @@
 <template>
     <el-scrollbar height="100dvh" @scroll="scroll" ref="reference">
-        <div class="nav" :class="{ 'navBg': scrollNum > 50 }">
+        <div class="nav">
             <div class="announcement" title="公告" @click="() => dialogTableVisible = !dialogTableVisible">
                 <IconBookmark />
             </div>
@@ -31,6 +31,7 @@ const reference = ref(null); // 滚动组件本体
 let id = ref(null) // 歌单id
 let scrollNum = ref(null)
 let dialogTableVisible = ref(false)
+let opacityNum = 0
 
 // 检测音乐id变化，更新id
 watch(() => route.query.id, (newPath) => id = newPath);
@@ -49,11 +50,12 @@ const debounceFun = debounce(function () {
  * 只能这样子处理
  */
 const scroll = ({ scrollTop }) => {
-    scrollNum.value = scrollTop
-    // 获取歌曲列表的 DOM 元素
+    scrollNum.value = scrollTop// 获取歌曲列表的 DOM 元素
     const songSheet = reference.value.$el.querySelector('#songSheet');
     // 判断是否存在歌曲列表以及滚动位置是否过半
     if (songSheet && scrollTop >= songSheet.clientHeight / 2) debounceFun()
+    scrollTop / 200 > 0.85 ? opacityNum = 0.85 : opacityNum = scrollTop / 200
+    document.querySelector('.nav').style.setProperty('--opacity', opacityNum)
 };
 </script>
 
@@ -61,12 +63,8 @@ const scroll = ({ scrollTop }) => {
 .el-scrollbar {
     position: relative;
 
-    .navBg {
-        background-color: rgba(255, 255, 255, 0.85);
-        border-bottom: 1px solid #ccc;
-    }
-
     .nav {
+        --opacity: 0;
         position: absolute;
         top: 0;
         left: 0;
@@ -75,9 +73,9 @@ const scroll = ({ scrollTop }) => {
         justify-content: space-between;
         padding: 10px 50px;
         backdrop-filter: blur(6px);
-        border-color: rgba(229, 230, 235, 0.85);
+        border-color: rgba(255, 255, 255, var(--opacity, 0.85));
+        background-color: rgba(255, 255, 255, var(--opacity, 0.85));
         z-index: 2;
-        transition: all 0.5s ease;
 
 
         .announcement {

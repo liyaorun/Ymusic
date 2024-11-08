@@ -25,7 +25,7 @@ export async function searchMuiscList(source, searchValue) {
                 name: item.name,
                 singer: item.author,
                 albumName: item.album || '未知',
-                albumimg: item.pic.startsWith('/assets/index/img/cp.png') ? 'src/assets/img/falseImg.png' : item.pic,
+                albumimg: item.pic.startsWith('/assets/index/img/cp.png') ? './public/img/falseImg.png' : item.pic,
                 source: source
             })
         })

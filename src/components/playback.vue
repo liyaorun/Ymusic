@@ -5,7 +5,7 @@
         <div class="musicContent el-col-8">
             <div class="musicContent-body" v-if="!showMenu">
                 <div class="img" @click="showMusicPlay">
-                    <img :src="musicList.playBackmusic.albumimg || 'src/assets/img/jige.png'" alt="Album Image" />
+                    <img :src="musicList.playBackmusic.albumimg || './public/img/jige.png'" alt="Album Image" />
                     <div class="IconExpand">
                         <IconExpand />
                     </div>

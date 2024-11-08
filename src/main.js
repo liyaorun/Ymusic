@@ -31,7 +31,7 @@ const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
 app.use(VueLazyload, {
-    loading: 'src/assets/img/jige.png',
+    loading: './public/img/jige.png',
 })
 
 app.use(pinia).use(router).use(ElementPlus).mount('#app')

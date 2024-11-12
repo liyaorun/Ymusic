@@ -23,14 +23,14 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/ghyinyue/, ''),
       },
       '/wyyApi': {
-        target: 'http://localhost:3000',
+        target: 'http://110.41.166.171:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/wyyApi/, ''),
       },
-      '/sql': {
-        target: 'http://localhost:4000',
+      '/server': {
+        target: 'http://110.41.166.171:4000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/sql/, ''),
+        rewrite: (path) => path.replace(/^\/server/, ''),
       },
     },
   },

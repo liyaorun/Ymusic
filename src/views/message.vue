@@ -33,7 +33,7 @@ const SongSheet = wyySongSheet()
 
 // 获取消息数据
 const getMessageData = async () => {
-    const response = (await axios.get('sql/sql/getcontext')).data.data;
+    const response = (await axios.get('/server/api/getcontext')).data.data;
     const count = Math.min(response.length, 50); // 取前50个或所有元素
     messageData.value = response.slice(0, count).map(item => ({
         ...item,
@@ -74,7 +74,7 @@ const addMessageFun = () => {
       grouping: true,
     });
 
-    axios.post(`sql/sql/addcontext?user=${name}&context=${text}`)
+    axios.post(`/server/api/addcontext?user=${name}&context=${text}`)
         .then(response => {
             ElMessage.success('留言成功')
             MessageValue.value = null

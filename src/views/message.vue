@@ -70,8 +70,8 @@ const addMessageFun = () => {
     let name = SongSheet.wyy.name || '未知'
     let text = MessageValue.value
     if (!MessageValue.value) return ElMessage.error({
-      message: '留言内容为空',
-      grouping: true,
+        message: '留言内容为空',
+        grouping: true,
     });
 
     axios.post(`/server/api/addcontext?user=${name}&context=${text}`)
@@ -79,10 +79,14 @@ const addMessageFun = () => {
             ElMessage.success('留言成功')
             MessageValue.value = null
 
-            messageQueue.value.unshift({
+            const newMessageData = {
                 user: name,
                 text: text
-            })
+            }
+
+            newMessageData.style = generateItemStyle()
+
+            messageData.value.push(newMessageData)
         })
         .catch(error => {
             console.error('Error:', error);
